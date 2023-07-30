@@ -2,6 +2,7 @@
 export interface Props {
   title: string
   body: string
+  dark?: false
 }
 
 const { title, body } = Astro.props as Props
@@ -13,14 +14,6 @@ const { title, body } = Astro.props as Props
 </div>
 
 <style>
-  .features .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    padding: 0 20px;
-    margin: 30px auto;
-  }
-
   .card {
     background: #fff;
     padding: 20px;
