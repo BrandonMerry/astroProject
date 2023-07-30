@@ -1,22 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Showcase from '../components/Showcase.astro';
+import Showcase from '../components/Showcase.astro'
 import Card from '../components/Card.astro'
 
 const posts = await Astro.glob('../posts/*.md')
 ---
 
+<!-- this is the page to display the blog posts  -->
 <Layout title='blog'>
-    <Showcase heading="blog" text="blog with astro"/>
+  <Showcase heading='blog' text='blog with astro' />
   <section class='page-content'>
     <div class='container'>
-        {posts.map (post => (
-            <Card>
-                <h3> {post.frontmatter.title}</h3>
-                <p> {post.frontmatter.exerpt}</p>
-                <a class="btn" href={`/${post.frontmatter.slug}`}> Read More</a>
-            </Card>
-        ))}
+      {
+        posts.map((post) => (
+          <Card>
+            <h3> {post.frontmatter.title}</h3>
+            <p> {post.frontmatter.exerpt}</p>
+            <a class='btn' href={`/${post.frontmatter.slug}`}>
+              {' '}
+              Read More
+            </a>
+          </Card>
+        ))
+      }
     </div>
   </section>
 </Layout>
